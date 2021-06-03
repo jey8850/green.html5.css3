@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //문자형 var 변수="사용할 문자나 숫자";
+        //문자형 데이터에 html태그를 포함하여 출력하면 태그로 인식
+        var s="javascript";
+        var num="100";
+        var tag="<h1>String</h1>";
+        document.write(tag);
+
+
+        //숫자형 var 변수=숫자; 또는 Numer("문자형 숫자");
+        var s=100;
+        var t=Number("500"); //"500" -> 500
+        // document.write(s);
+
+        //논리형 var 변수=true of false; 또는 Boolean(데이터);
+        var t=10>100; //false
+        var k=Boolean("heello"); //true
+        document.write(k);
+
+        //null & undefined 데이터
+        var s; // undefined
+        var t=hello;
+        t=null;
+        document.write(s);
+
+        // typeof
+        var num = 100;
+        var str ="자바스크립트";
+
+        document.write(typeof num, "<br>");
+        document.write(typeof str);
+
+    
+    </script>
+</body>
+</html>
