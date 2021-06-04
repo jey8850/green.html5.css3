@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+/* 초기화 */
+*{ margin: 0; padding: 0;}
+body { font-family: 'Helvetica', sans-serif;}
+li { list-style: none;}
+a { text-decoration: none;}
+
+/* 헤더 */
+#main_header {
+    height: 45px; /* 이미지 높이 */
+    background: url('header_background.png');
+
+    /* 자식태그 absolute, height 반드시 지정 */
+    position: relative; 
+    text-align: center; /* 수평정렬, block태그에서만 사용 */
+    line-height: 45px;  /* 수직정렬, height랑 일치시켜야함 */
+}
+
+#main_header > h1 { /* 자식태그 h1 선택 */
+    color: white;
+}
+
+#main_header > a, #main_header > label {
+    display: block; /* 170page 참고 */
+    height: 32px;
+    position: absolute;
+}
+
+#main_header > a.left { /* a태그면서 left를 클래스로 가짐 */
+    width: 62px;
+    /* relative로 된 부모태그를 기준으로 위치를 잡음*/
+    left: 5px; top: 7px; 
+}
+
+#main_header > label.right {
+    width: 32px;
+    right: 5px; top: 7px;
+}
+/* 스프라이트 이미지는 포지션 이용, 포지션은 사이트에서 제공됨 */
+#main_header > a.left {
+background: url("sprites.png");
+    background-position: 0px 0px;
+    text-indent: -99999px;  /* 들여쓰기 속성 : 태그 내부의 글자를 보이지 않게*/
+}
+
+#main_header > label.right {
+/* 스프라이트 이미지는 포지션 이용, 포지션은 사이트에서 제공됨 */
+    background: url("sprites.png");
+    background-position: -62px 0px;
+    text-indent: -99999px;  /* 들여쓰기 속성 : 태그 내부의 글자를 보이지 않게*/
+}
+/* 토글 목록 */
+#toggle { display: none;}
+    /* 토글 버튼 클릭 안했을 때 : 버튼 메뉴 숨김*/
+#toggle + #wrap > #toggle_gnb_wrap { display: none;}
+    /* 토글 버튼 클릭 안했을 때 : 버튼 메뉴 보여줌*/
+#toggle:checked + #wrap > #toggle_gnb_wrap { display: block;}
+
+    /* 레이아웃 색상*/
+#toggle_gnb_wrap {
+    background: #363636;
+    padding: 15px;
+}
+#toggle_gnb {
+    background: #ffffff;
+    padding: 5px; /* 가운데 정렬할 때 유용하게 쓰일 수 있음 */
+}
+
+    /* 토글 목록 */
+#toggle_gnb > ul { overflow: hidden;}
+#toggle_gnb > ul > li {
+    width: 80px; float: left;
+}
+
+/* 내비게이션1 */
+#top_gnb { 
+    overflow: hidden;
+    border-bottom: 1px solid black;
+    background: #B42111;}
+#top_gnb > div > a {
+    float: left;
+    width: 25%; /* 크기의 비율을 유지하고 싶을 때 */
+
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: white;
+}
+/* 내비게이션2 */
+#bottom_gnb {
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+#bottom_gnb > div {
+    display: table-cell;
+    position: relative;
+}
+
+#bottom_gnb > div > a {
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+} /* 내비게이션 2 수평정렬*/
+
+#bottom_gnb > div > a::before {
+    display: block;
+    position: absolute;
+    top : 9px; left: -1px;
+    width: 1px; height: 15px;
+    border-left: 1px solid black;
+    content: '';
+}
+
+/* 본문 */
+/* 푸터 */
