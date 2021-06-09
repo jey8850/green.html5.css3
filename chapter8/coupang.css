@@ -121,10 +121,13 @@ body {
 #bottom_gnb > div.item_8.active { background-position: 0px -1360px; }
 #bottom_gnb > div.item_9.active { background-position: 0px -1440px; }
 #bottom_gnb > div.item_10.active{ background-position: 0px -1520px; }
+
 /* 목록 */
 #detail_list {
     overflow: hidden;
     padding: 10px;
+    background: #3B414D;
+    padding-bottom: 15px;
 }
 
 #detail_list > ul {
@@ -136,6 +139,20 @@ body {
     height: 13px;
     margin-top: 5px;
     padding: 3px 5px;
+    color: #F3F3F3;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#detail_list > ul > li.header {
+    padding-left: 15px;
+}
+
+#detail_list > ul > li.header > p {
+    font-weight: bold;
+    color: #48C5FF;
 }
 /* 본문 */
 
