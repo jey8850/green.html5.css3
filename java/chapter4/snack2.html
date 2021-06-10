@@ -18,7 +18,10 @@
 
     var money = prompt("돈을 얼마나 넣으실 건가요?","0");
     var sanck;
-    var honeybutter = 1300, cancho = 1500, pringles = 3000;
+    //var honeybutter = 1300, cancho = 1500, pringles = 3000;
+    var defaultSnack = ["허니버터","칸쵸","프링글스"];
+    var defaultMoney = [1300, 1500, 3000];
+    var noSanck = true;
     var change = 0; //거스름돈
     //변수는 중괄호 바깥에다가 선언하면 중괄호의 제약을 받지 않는다.
     //중괄호 안에 선언한 변수는 중괄호 안에서만 사용가능
@@ -29,24 +32,25 @@
         location.reload();
     }else{ //돈을 넣었을때
         snack = prompt("어떤 과자를 뽑으실 건가요?(허니버터, 칸쵸,프링글스)")
+        
+        for (i in defaultSnack) {
+
+            if ( snack == defaultSnack[i] ) {
+                change = money - defaultMoney;
+            }
+        }
+
     }
-    if (snack == "허니버터") {
-        change = money - honeybutter;
-    } else if (snack == "칸쵸") {
-        change = money - cancho;
-    } else if (snack == "프링글스") {
-        change = money - pringles;
-    } else {
-        alert("해당 과자가 없습니다.");
-        location.reload(); //새로고침
-    }
+    
+    
+    
 
     //돈이 모자랄 경우 판단
     if (change<0) {
         alert("돈이 모자랍니다");
         location.reload()
     } else {
-        document.write(snack + "나왔습니다~ 거스름돈 :" + change)
+        document.write( defaultSnack + "나왔습니다~ 거스름돈 :" + change)
     }
     </script>
 </body>
