@@ -23,7 +23,7 @@ forecast.avgShow = function(arr) {
     }
     var avg = num / arr.length;
     
-    return num+forecast.unit(arr);
+    return avg.toFixed(1) + forecast.unit(arr);
 };
 
 //단위 붙이기
