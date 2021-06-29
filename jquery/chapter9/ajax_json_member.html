@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <h2>회원정보</h2>
+        <p>
+            <span>아이디:</span>
+            <span class="member"></span>
+        </p>
+        <p>
+            <span>이메일:</span>
+            <span class="member"></span>
+        </p>
+        <p>
+            <span>first_name:</span>
+            <span class="member"></span>
+        </p>
+        <p>
+            <span>last_name:</span>
+            <span class="member"></span>
+        </p>
+    </div>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            $.ajax({
+                url:"MOCK_DATA1.json", //데이터를 받을 주소(서버쪽)
+                dataType:"json",//요청한 데이터 형식( 나는 json 형태로 주세요)
+                success:function(data) { //서버와의 통신이 성공해서 데이터를 불러왔을때
+                    if(data.length>0) {
+                        //for (var i in data) {
+                        //    var $id = data[i].id;
+                        //    var $first_name = data[i].first_name;
+                        //    var $last_name = data[i].last_name;
+                        //    var $email = data[i].email;
+                        //    var $gender = data[i].gender;
+                        //    var $password = data[i].$password;
+                        //}
+                        var arr=[data[0].id, data[0].email, data[0].first_name, data[0].last_name]
+
+                        $(".member").each(function(index, item) {
+                            $(item).text(arr(index));
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

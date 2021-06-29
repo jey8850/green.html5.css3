@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            $(function(){
+                var url = "https://api.openweathermap.org/data/2.5/weather";
+                url += "?q="+"incheon";
+                url += "&appid="+"af0b5654871c2e978bd4842a7b173de6";
+            });
+
+            $.ajax({
+                type: "GET",
+                //url: "https://api.openweathermap.org/data/2.5/weather?q=incheon&appid=af0b5654871c2e978bd4842a7b173de6",
+                //var url = "https://api.openweathermap.org/data/2.5/weather";
+                //url += "?q="+"incheon";
+                //url += "&appid="+"af0b5654871c2e978bd4842a7b173de6";
+                
+                dataType:"json",//요청한 데이터 형식( 나는 json 형태로 주세요)
+                success:function(data) {
+                    var weather = data;
+                    console.log(weather.coord.lat);
+                    console.log(weather.weather[0].main);
+                    console.log(weather.timezone);
+                    console.log(weather.sys);
+                    console.log(weather.main.temp);
+                    console.log(weather.clouds);
+                    console.log(weather.main.visivility);
+                },
+                error:function(request, status, error){
+                    console.log("code:" + request.status);
+                    console.log("massage" + request.responseText);
+                    console.log("error" + error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
